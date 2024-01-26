@@ -1,16 +1,8 @@
-import math
+import numpy as np
 
-def main_program():
-    x_values = []
-    sine_values = []
-    for i in range(1000):
-        x = i * 0.002
-        sine_value = math.sin(x)
-        x_values.append(x)
-        sine_values.append(sine_value)
-    print("X\tSine(X)")
-    for x, sin_x in zip(x_values, sine_values):
-        print(f"{x:.{14}f}{sine_value}")
+x_values = np.linspace(0, 2, 1000)
+sine_values = np.sin(x_values)
 
-if __name__ == "__main__":
-    main_program()
+combined_values = np.column_stack((x_values, sine_values))
+
+print(combined_values)
